@@ -1,0 +1,33 @@
+Create table Users and Accounts
+
+
+CREATE TABLE Users(
+    id SERIAL PRIMARY KEY,
+    role VARCHAR NOT NULL,
+    login VARCHAR NOT NULL UNIQUE,
+    password VARCHAR NOT NULL
+);
+
+
+CREATE TABLE Accounts(
+    id SERIAL PRIMARY KEY,
+    balance DECIMAL(20, 2),
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+
+
+INSERT INTO Accounts (balance, user_id) VALUES
+(15000.00, 1),   -- Account for admin1
+(5000.50, 2),    -- Account for user1
+(12000.75, 3),   -- Account for user2
+(25000.00, 4),   -- Account for manager1
+(300.25, 5);     -- Account for test_user
+
+
+INSERT INTO Users (role, login, password) VALUES
+('ADMIN', 'admin1', '$2a$10$xJwLH5XZzL6QvL9vQKqB.uRkD7N3Yb1EeW5VlG3tR2mS0z1VJXvHy'), -- password: admin123
+('USER', 'user1', '$2a$10$yH2eZ5pL3rO9wVbN7MkQe.8XvC1DfG2hJ4kL6mN8bP0qW1zSdRtY'), -- password: user1234
+('USER', 'user2', '$2a$10$zT4wX7vK9pB2mN3bV5cRf.6YgH8jK1L2oP4iQ6sD7fA0qW3eRtY'), -- password: securePass
+('MANAGER', 'manager1', '$2a$10$qW3eRtYhH8jK1L2oP4iQ6sD7fA0qW3eRtYzT4wX7vK9pB2mN3bV5cRf'), -- password: managerPass
+('USER', 'test_user', '$2a$10$8XvC1DfG2hJ4kL6mN8bP0qW1zSdRtYyH2eZ5pL3rO9wVbN7MkQe'); -- password: test123

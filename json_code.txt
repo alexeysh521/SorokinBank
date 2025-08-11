@@ -1,0 +1,52 @@
+1. USER_CREATE - http://localhost:8080/auth/register AND http://localhost:8080/auth/login
+
+ {
+   "login": "ivan12345",
+   "password": "12345",
+   "role": "ADMIN"
+ }
+
+ AND
+
+ {
+   "login": "ivan12345",
+   "password": "12345"
+ }
+
+2. SHOW_ALL_USERS - http://localhost:8080/admin/operation/show/all/users
+
+3. ACCOUNT_CREATE - http://localhost:8080/user/operation/account/create
+
+ {
+     "balance": "15000.00"
+ }
+
+
+4. ACCOUNT_CLOSE - http://localhost:8080/user/operation/account/close
+
+ {
+     "id": 5
+ }
+
+5. ACCOUNT_DEPOSIT - http://localhost:8080/user/operation/account/deposit
+
+ {
+     "id": 4,
+     "amount": "6002.23"
+ }
+
+6. ACCOUNT_TRANSFER - http://localhost:8080/user/operation/account/transfer
+
+ {
+     "sender": 4,
+     "recipient": 6,
+     "amount": "5000"
+ }
+
+7. ACCOUNT_WITHDRAW - http://localhost:8080/user/operation/account/withdraw
+
+ {
+     "id": 4,
+     "amount": "16.00"
+ }
+

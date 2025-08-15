@@ -8,7 +8,6 @@ import my.project.sorokintaskbank.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-/// Для создания таблиц есть файл в .resources ///
 
 @RestController
 @RequestMapping("/user/operation")
